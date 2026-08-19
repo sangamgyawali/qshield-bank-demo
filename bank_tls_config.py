@@ -6,4 +6,5 @@ def build_server_context(cert_path: str, key_path: str) -> ssl.SSLContext:
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     context.load_cert_chain(cert_path, key_path)
     context.minimum_version = ssl.TLSVersion.TLSv1_2
+    context.set_ecdh_curve("secp256r1")
     return context
